@@ -7,15 +7,17 @@ function clock() {
   let h = new Date().getHours();
   let m = new Date().getMinutes();
   let s = new Date().getSeconds();
-  let am = "AM";
-const h = hours % 12 === 0 ? 12 : hours % 12;
-  if (h > 12) {
-    h = h - 12;
-    am = "PM";
+
+  // Determine if it's AM or PM
+  const amOrPm = h >= 12 ? "PM" : "AM";
+
+  // Convert 24-hour format to 12-hour format
+  const formattedHours = h % 12 === 0 ? 12 : hours % 12;
+
+  if (formattedHours < 10) {
+    formattedHours = "0" + formattedHours;
   }
-  if (h < 10) {
-    h = "0" + h;
-  }
+
   if (m < 10) {
     m = "0" + m;
   }
@@ -23,10 +25,10 @@ const h = hours % 12 === 0 ? 12 : hours % 12;
     s = "0" + s;
   }
 
-  hour.innerHTML = h;
+  hour.innerHTML = formattedHours;
   minute.innerHTML = m;
   second.innerHTML = s;
-  ampm.innerHTML = am;
+  ampm.innerHTML = amOrPm;
 }
 
 clock();
