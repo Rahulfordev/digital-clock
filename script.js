@@ -8,7 +8,7 @@ function clock() {
   let m = new Date().getMinutes();
   let s = new Date().getSeconds();
   let am = "AM";
-
+const h = hours % 12 === 0 ? 12 : hours % 12;
   if (h > 12) {
     h = h - 12;
     am = "PM";
