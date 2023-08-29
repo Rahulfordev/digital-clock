@@ -12,7 +12,7 @@ function clock() {
   const amOrPm = h >= 12 ? "PM" : "AM";
 
   // Convert 24-hour format to 12-hour format
-  const formattedHours = h % 12 === 0 ? 12 : hours % 12;
+  let formattedHours = h % 12 === 0 ? 12 : hours % 12;
 
   if (formattedHours < 10) {
     formattedHours = "0" + formattedHours;
